@@ -1,15 +1,19 @@
 class Solution {
 
     public String reverseWords(String s) {
-        String[] words = s.split(" ");
-        int countOfWords = words.length;
-        int printCount = 1;
-        String s1 = new String();
-        for (String word : words) {
-            int length = word.length();
-            int end = length - 1;
-            int start = 0;
-            char[] ch = word.toCharArray();
+            int start=0;
+            char[] ch = s.toCharArray();
+            int end;
+            for(end =0;end<ch.length;end++){
+                if(ch[end]==' '){
+                    reverse(ch,start,end-1);
+                    start = end + 1;
+                }
+            }
+            reverse(ch,start,ch.length-1);
+        return new String(ch);
+    }
+    public void reverse(char[] ch, int start, int end){
             while (start < end) {
                 char temp = ch[start];
                 ch[start] = ch[end];
@@ -17,11 +21,5 @@ class Solution {
                 start++;
                 end--;
             }
-            if (printCount < countOfWords) {
-                s1 = s1 + String.valueOf(ch) + " ";
-                printCount++;
-            } else s1 = s1 + String.valueOf(ch);
         }
-        return s1;
     }
-}

@@ -1,21 +1,23 @@
 class Solution {
 
     public boolean checkPossibility(int[] nums) {
-        int i, count = 0;
+        int i;
+        boolean changed = false;
         for(i=0;i<nums.length-1;i++){
             if(nums[i]<=nums[i+1])
                 continue;
+            if(changed){
+                return false;
+            }
             if(i==0||nums[i+1]>=nums[i-1]){
                 nums[i] = nums[i+1];
-                count+=1;
+                changed=true;
             }
             else{
                 nums[i+1]=nums[i];
-                count+=1;
+                changed=true;
             }
         }
-        if(count>1){
-            return false;
-        } else return true;
+       return true;
     }
 }

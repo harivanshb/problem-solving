@@ -1,9 +1,9 @@
 class Solution {
     public int minDeletions(String s) {
         int[] arr = new int[26];
-        int res = 0;
+        int count = 0;
         for (char ch : s.toCharArray()) {
-            arr[ch - 'a']++;
+             arr[ch - 'a'] = arr[ch - 'a'] + 1;
         }
         Set<Integer> used = new HashSet<>();
         for (int i = 0; i < 26; i++) {
@@ -14,9 +14,9 @@ class Solution {
                     break;
                 } 
                 freq--;
-                res++;
+                count++;
             }
         }
-        return res; 
+        return count; 
     }
 }

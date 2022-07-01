@@ -5,19 +5,17 @@ class Solution {
         int j;
         int size=0, cost=0;
         for(i=0;i<boxTypes.length;i++){
-            for (j=0;j<boxTypes[i].length-1;j++){
                 if (size<truckSize){
-                    if(boxTypes[i][j]+size>truckSize){
+                    if(boxTypes[i][0]+size>truckSize){
                         int size2=truckSize-size;
                         size+=truckSize-size;
-                        cost+=size2*boxTypes[i][j+1];
+                        cost+=size2*boxTypes[i][1];
                     }
                     else {
-                        size = size + boxTypes[i][j];
-                        cost += boxTypes[i][j] * boxTypes[i][j + 1];
+                        size = size + boxTypes[i][0];
+                        cost += boxTypes[i][0] * boxTypes[i][1];
                     }
                 }
-            }
         }
         return cost;
     }

@@ -1,12 +1,13 @@
 class Solution {
 
     public int longestConsecutive(int[] nums) {
-        HashSet<Integer> numberSet = new HashSet<>();
+       Set<Integer> numberSet = new HashSet<>();
       
-        int maxCount = 0;
+      
         for (int i = 0; i < nums.length; i++) {
             numberSet.add(nums[i]);
         }
+          int maxCount = 0;
         for (int i = 0; i < nums.length; i++) {
             int currentNum = nums[i];
             int currentSeqLen = 1;
